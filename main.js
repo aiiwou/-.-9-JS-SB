@@ -1,5 +1,5 @@
 function createNumbersArray(count) {
-    let arr = [];
+    const arr = [];
     for (let i = 1; i <= count; i++) {
         arr.push(i);
         arr.push(i);  
@@ -18,13 +18,13 @@ function shuffle(arr) {
 }
 
 function createShuffledArray(count) {
-    let arr = createNumbersArray(count);
+    const arr = createNumbersArray(count);
     shuffle(arr);
     return arr;
 }
 
 function createCard(number) {
-    let card = document.createElement('div');    
+    const card = document.createElement('div');    
     card.textContent = number;
     card.classList.add('card');
 
@@ -65,7 +65,7 @@ function restartGame(container, element=undefined) {
 }
 
 function createButtonReplay(container) {
-    let button = document.createElement('button');
+    const button = document.createElement('button');
     button.classList.add('btn', 'btn-success');
     button.textContent = 'Начать новую игру'
     button.addEventListener('click', function() {
@@ -75,10 +75,10 @@ function createButtonReplay(container) {
 }
 
 function createFormAndButton(container) {
-    let form = document.createElement('form');
-    let input = document.createElement('input');
-    let button = document.createElement('button');
-    let wrapper = document.createElement('div');
+    const form = document.createElement('form');
+    const input = document.createElement('input');
+    const button = document.createElement('button');
+    const wrapper = document.createElement('div');
     wrapper.classList.add('wrapper')
     form.classList.add('form')
     input.classList.add('input')
@@ -105,12 +105,12 @@ function createFormAndButton(container) {
 
 function startGame(count, container) {
     container.classList.add('grid')
-    let arr = createShuffledArray(count);
-    for (let i of arr) {
-        let card = createCard(i);
+    const arr = createShuffledArray(count);
+    for (const i of arr) {
+        const card = createCard(i);
         card.addEventListener('click', function() {
             if (document.querySelectorAll('.successfully-uncovered').length === count * 2) {
-                let button = createButtonReplay(container);
+                const button = createButtonReplay(container);
                 document.body.appendChild(button);
                 clearTimeout();
             }
@@ -124,7 +124,7 @@ function startGame(count, container) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    let container = document.querySelector(`.container`);
+    const container = document.querySelector(`.container`);
     createFormAndButton(container);
 });
 
