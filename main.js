@@ -112,6 +112,7 @@ function startGame(count, container) {
             if (document.querySelectorAll('.successfully-uncovered').length === count * 2) {
                 let button = createButtonReplay(container);
                 document.body.appendChild(button);
+                clearTimeout();
             }
         })
         container.appendChild(card);
